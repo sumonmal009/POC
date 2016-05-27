@@ -1,0 +1,6 @@
+http://aws.amazon.com/eclipse
+Use this url to install AWS eclipse plugins to directly access the AWS.
+All you need to activate is the access & Secret key pair for a user managed on IAM
+The IAM user should have include the below policies
+	AmazonS3FullAccess
+	AWSConnector
