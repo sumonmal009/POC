@@ -1,0 +1,323 @@
+log4j:WARN No appenders could be found for logger (org.springframework.core.env.StandardEnvironment).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+#####Creating index (library)
+Recreated Index : library
+#####Adding documents (book(s)) 
+Inserted book with title: C Programming language
+Inserted book with title: C Programming language
+Inserted book with title: C Programming language
+Inserted book with title: C Programming language
+Inserted book with title: C Programming language
+Inserted book with title: Elastic Search Reference
+Inserted book with title: Elasticsearch: The Definitive Guide 1.x
+Inserted book with title: Elasticsearch: The Definitive Guide 2.x
+Inserted book with title: Maven
+#####Retrieving a document (book)
+Retrieved book : 7 ,its Title : Elasticsearch: The Definitive Guide 1.x
+#####Range search - book 'price' range [30-45]
+Total hits for price range search : 2
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 2,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "6",
+      "_score" : 1.0,
+      "_source":{
+"title" : "Elastic Search Reference",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "30"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "7",
+      "_score" : 1.0,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 1.x",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "40"
+}
+    } ]
+  }
+}
+#####Range search - book 'price' range [15-45]
+Total hits for price range search : 7
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 7,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 1.0,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "Fourth",
+"price" : "24"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "5",
+      "_score" : 1.0,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "Fifth",
+"price" : "25"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 1.0,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "First",
+"price" : "21"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "6",
+      "_score" : 1.0,
+      "_source":{
+"title" : "Elastic Search Reference",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "30"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "2",
+      "_score" : 1.0,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "Second",
+"price" : "22"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "7",
+      "_score" : 1.0,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 1.x",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "40"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "3",
+      "_score" : 1.0,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "Third",
+"price" : "23"
+}
+    } ]
+  }
+}
+#####Search book title
+Total hits for title search : 2
+{
+  "took" : 8,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 20,
+    "successful" : 20,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 2,
+    "max_score" : 0.375,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "7",
+      "_score" : 0.375,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 1.x",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "40"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "8",
+      "_score" : 0.375,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 2.x",
+"author" : "Shay Banon",
+"edition" : "Second",
+"price" : "60"
+}
+    } ]
+  }
+}
+#####Multi-query search, trial #1Find all books having 'Maven' in its title or from Third edition.
+{
+  "took" : 12,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 20,
+    "successful" : 20,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.375,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "9",
+      "_score" : 0.375,
+      "_source":{
+"title" : "Maven",
+"author" : "Jason van Zyl",
+"edition" : "Second",
+"price" : "60"
+}
+    } ]
+  }
+}
+{
+  "took" : 10,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 20,
+    "successful" : 20,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "3",
+      "_score" : 1.0,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "Third",
+"price" : "23"
+}
+    } ]
+  }
+}
+Number of hits : 2
+#####Multi-query search, trial #2 Find all books having 'Guide' in its title, or from First edition.
+{
+  "took" : 14,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 20,
+    "successful" : 20,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 2,
+    "max_score" : 0.3125,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "7",
+      "_score" : 0.3125,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 1.x",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "40"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "8",
+      "_score" : 0.3125,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 2.x",
+"author" : "Shay Banon",
+"edition" : "Second",
+"price" : "60"
+}
+    } ]
+  }
+}
+{
+  "took" : 12,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 20,
+    "successful" : 20,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 3,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "7",
+      "_score" : 1.0,
+      "_source":{
+"title" : "Elasticsearch: The Definitive Guide 1.x",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "40"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 0.5945348,
+      "_source":{
+"title" : "C Programming language",
+"author" : "Kernighan Ritchie",
+"edition" : "First",
+"price" : "21"
+}
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "6",
+      "_score" : 0.5945348,
+      "_source":{
+"title" : "Elastic Search Reference",
+"author" : "Shay Banon",
+"edition" : "First",
+"price" : "30"
+}
+    } ]
+  }
+}
+Number of hits : 5
