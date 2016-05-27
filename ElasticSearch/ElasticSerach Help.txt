@@ -1,0 +1,22 @@
+download the elastic search from elasticsearch.org
+extract the archive
+go to it's bin folder
+run the elasticsearch.bat /sh as per your enverionment
+---------------------------------------------------------
+install plugins
+Head
+	use this command to install:  >plugin install mobz/elasticsearch-head
+	to verify the installation restart the elasticsearch, in log [head] should appear
+	
+	
+access head:   http://localhost:9200/_plugin/head/
+----------------------------------------------------------
+Both the version should be same other wise node handling will fail
+I've used ElasticSearch: 0.20.5
+& the below artifact
+<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>0.20.5</version>
+		</dependency>
+	
